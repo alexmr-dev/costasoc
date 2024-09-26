@@ -1,0 +1,11 @@
+{
+  "name": "Costasoc",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "5a78e495"
+}

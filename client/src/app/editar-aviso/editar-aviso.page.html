@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large"></ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<h3 style="text-align: center; margin-left: 1em; margin-right: 1em;">{{nombreMostrar}} en {{playaAsociadaMostrar}}</h3>
+
+	<div id="mapAviso" style="
+		height: 25%; 
+		width: 100%;
+	"></div>
+	<ion-card style="text-align: center;">
+		<p>Registrado por {{usuarioLastUpdateMostrar}} el {{fechaMostrar}} a las {{horaMostrar}} </p>
+	</ion-card>
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 1.0em; margin-bottom: -0.5em">
+        <ion-checkbox [(ngModel)]="avisoSolucionado"><strong>¿Solucionado?</strong></ion-checkbox>
+    </div>
+	<!--
+    <ion-item>
+		<ion-select [(ngModel)]="estadoRecurso" label="Estado" [placeholder]="estadoRecurso || 'Selecciona una opción'">
+			<ion-select-option value="opcion1">Correcto</ion-select-option>
+			<ion-select-option value="opcion2">Roto</ion-select-option>
+			<ion-select-option value="opcion3">Robado</ion-select-option>
+		</ion-select>
+	</ion-item>
+    -->
+	<br />
+	<ion-textarea rows=5 class="textarea-custom" label="Comentario" labelPlacement="floating" fill="outline" [(ngModel)]="comentarioMostrar"></ion-textarea>
+	<br />
+	<ion-item>
+		<ion-select label="¿Actualizar banderas?" [(ngModel)]="actualizarBanderas" placeholder="Selecciona una opción">
+			<ion-select-option value="No">No</ion-select-option>
+			<ion-select-option value="permitir-banio">Permitir baño</ion-select-option>
+			<ion-select-option value="banio-precaucion">Baño con precaución</ion-select-option>
+			<ion-select-option value="banio-prohibido">Baño prohibido</ion-select-option>
+		</ion-select>
+	</ion-item>
+	<br />
+	<div class="contenedor-img" style="position: relative;">
+		<img [src]="imagenAviso" style="width: 100%; height: 100%; object-fit: cover;">
+		<div class="contenedor-btn-editImage" style="position: absolute; bottom: 10px; right: 10px;">
+			<ion-button class="btn_editImage" fill="solid" shape="round" size="medium" (click)="subirImagen()">
+				<ion-icon class="iconEditImage" slot="icon-only" name="create-outline"></ion-icon>
+			</ion-button>
+		</div>
+	</div>
+	
+</ion-content>
+<ion-footer style="background: rgba(0, 0, 0, 0.75);">
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<ion-button strong="true" fill="solid" color="danger" expand="full"
+					(click)="cancelar()">Cancelar</ion-button>
+			</ion-col>
+			<ion-col>
+				<ion-button strong="true" fill="solid" color="success" expand="full"
+					(click)="confirmar()">Confirmar</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-footer>

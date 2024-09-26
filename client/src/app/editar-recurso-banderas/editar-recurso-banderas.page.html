@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large"></ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<h3 style="text-align: center; margin-left: 1em; margin-right: 1em;">Bandera en {{playaAsociadaMostrar}}
+	</h3>
+
+	<div id="mapRecurso" style="
+		height: 25%; 
+		width: 100%;
+	"></div>
+	<ion-card style="text-align: center;">
+		<p>Última revisión: {{usuarioLastUpdateMostrar}} el {{fechaMostrar}} a las {{horaMostrar}} </p>
+	</ion-card>
+	<br />
+	<ion-item>
+		<ion-select [(ngModel)]="estadoBandera" (ionChange)="onEstadoBanderaChange()" label="Estado" [placeholder]="estadoBandera || 'Selecciona una opción'">
+			<ion-select-option value="Verde">Verde</ion-select-option>
+			<ion-select-option value="Amarilla">Amarilla</ion-select-option>
+			<ion-select-option value="Roja">Roja</ion-select-option>
+			<!-- Añade más opciones aquí -->
+		</ion-select>
+	</ion-item>
+	<br />
+	<ion-textarea rows=5 class="textarea-custom" label="Comentario" labelPlacement="floating" fill="outline"
+		[(ngModel)]="comentarioMostrar">
+	</ion-textarea>
+	
+
+</ion-content>
+<ion-footer style="background: rgba(0, 0, 0, 0.75);">
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<ion-button strong="true" fill="solid" color="danger" expand="full"
+					(click)="cancelar()">Cancelar</ion-button>
+			</ion-col>
+			<ion-col>
+				<ion-button strong="true" fill="solid" color="success" expand="full"
+					(click)="confirmar()">Confirmar</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-footer>

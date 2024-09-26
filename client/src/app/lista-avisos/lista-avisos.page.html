@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">lista-avisos</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <h3 style="text-align: center; margin-left: 1em; margin-right: 1em;">Incidencias presentes en
+        {{playaAsociadaMostrar}}</h3>
+
+    <ng-container *ngIf="(avisos$ | async)?.length > 0; else noAvisos">
+        <ion-card *ngFor="let aviso of avisos$ | async" (click)="navigateToEditarAviso(aviso.ID)">
+            <ion-card-header>
+                <ion-card-title>{{ aviso.tipo_aviso }}</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                Registrado el {{ aviso.FechaLastUpdate | date:'dd/MM/yyyy' }} a las {{ aviso.HoraLastUpdate }}
+            </ion-card-content>
+        </ion-card>
+    </ng-container>
+
+    <ng-template #noAvisos>
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title style="text-align: center;">¡Todo correcto!</ion-card-title>
+            </ion-card-header>
+            <ion-card-content style="text-align: center;">
+                No hay incidencias ahora mismo.
+            </ion-card-content>
+        </ion-card>
+    </ng-template>
+</ion-content>

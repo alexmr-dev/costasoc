@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large"></ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<h3 style="text-align: center; margin-left: 1em; margin-right: 1em;"></h3>
+
+	<ion-card>
+		<img [src]="imagenPlayaAsociadaMostrar" />
+		<ion-card-header>
+			<ion-card-title>Playa de {{nombrePlayaAsociadaMostrar}}</ion-card-title>
+		</ion-card-header>
+
+		<ion-card-content>
+			<ion-grid>
+				<ion-row (click)="navigateToListaAvisos()">
+					<ion-col size="2"><ion-icon name="alert-circle" style="font-size: 18px;"></ion-icon></ion-col>
+					<ion-col size="8" style="font-size: 14px;">Incidencias sin resolver:</ion-col>
+					<ion-col size="2" class="ion-text-right">{{avisosPlayaAsociadaMostrar}}</ion-col>
+				</ion-row>
+				<ion-row (click)="navigateToListaRecursos()">
+					<ion-col size="2"><ion-icon name="hammer" style="font-size: 18px;"></ion-icon></ion-col>
+					<ion-col size="8" style="font-size: 14px;">Recursos rotos:</ion-col>
+					<ion-col size="2" class="ion-text-right">{{recursosRotosPlayaAsociadaMostrar}}</ion-col>
+				</ion-row>
+				<ion-row (click)="navigateToListaRecursos()">
+					<ion-col size="2"><ion-icon name="alert-circle" style="font-size: 18px;"></ion-icon></ion-col>
+					<ion-col size="8" style="font-size: 14px;">Recursos robados:</ion-col>
+					<ion-col size="2" class="ion-text-right">{{recursosRobadosPlayaAsociadaMostrar}}</ion-col>
+				</ion-row>
+				<ion-row (click)="navigateToListaSocorristas()">
+					<ion-col size="2"><ion-icon name="person-circle" style="font-size: 18px;"></ion-icon></ion-col>
+					<ion-col size="8" style="font-size: 14px;">Socorristas en línea:</ion-col>
+					<ion-col size="2" class="ion-text-right">{{usuariosPlayaAsociadaMostrar}}</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+
+</ion-content>

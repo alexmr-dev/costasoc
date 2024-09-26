@@ -1,0 +1,52 @@
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+.contenedor-img {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.5em;
+}
+
+.contenedor-btn-editImage {
+    display: flex;
+    justify-content: center;
+    margin-top: -1.5em;
+    margin-left: 5em;
+  }
+
+.btn_editImage {
+    --color: white;
+    --border-color: white;
+    --background-color: lightgrey;
+}
+
+.iconEditImage {
+    padding: 0px;
+}
+
+.contenedor-btn {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.info-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+.btnEditarInfo{
+    margin-bottom: 1em;
+}

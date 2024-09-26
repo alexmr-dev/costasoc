@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large"></ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <h3 style="text-align: center; margin-left: 1em; margin-right: 1em;">Asignar nueva playa</h3>
+    <br/>
+    <ion-item>
+		<ion-searchbar [(ngModel)]="searchText" (ionChange)="filterPlayas()" placeholder="Buscar..."></ion-searchbar>
+	</ion-item>
+    <ion-item>
+        <ion-select label="Seleccionar región:" [(ngModel)]="selectedRegion" (ionChange)="loadPlayas()">
+            <ion-select-option value="all">Todas</ion-select-option>
+            <ion-select-option *ngFor="let region of regiones" [value]="region.id">{{region.name}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-card *ngFor="let playa of filteredPlayas">
+        <img [src]="getImagenPlayaByID(playa.ID)" />
+        <ion-card-content>
+            <div class="info-line">
+				<p class="playa-name">{{playa.name}}</p>
+				<ion-button class="btnEditarInfo" size="small" fill="outline" (click)="selectPlaya(playa)">
+					<ion-icon name="checkmark-circle-outline"></ion-icon>
+				</ion-button>
+			</div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

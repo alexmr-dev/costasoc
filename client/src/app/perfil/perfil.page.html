@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large">perfil</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<h2>Mi perfil</h2>
+	<div class="contenedor-img">
+		<img [src]="currentUserPerfil.imagen">
+	</div>
+	<div class="contenedor-btn-editImage">
+		<ion-button class="btn_editImage" fill="solid" shape="round" size="medium" (click)="editImage()">
+			<ion-icon class="iconEditImage" slot="icon-only" name="create"></ion-icon>
+		</ion-button>
+	</div>
+	<br />
+	<!--<ion-textarea rows=3 class="textarea-custom" label="Comentario" labelPlacement="floating" fill="outline" placeholder="Comentario"></ion-textarea>-->
+	<ion-card>
+		<ion-card-header>
+			<ion-card-title style="margin:auto">Tu información</ion-card-title>
+		</ion-card-header>
+		<ion-card-content>
+			<div class="info-line">
+				<p style="color: white;">Nombre: {{currentUserPerfil.name}}</p>
+				<ion-button class="btnEditarInfo" size="small" fill="outline"
+					(click)="editField('name')">Editar</ion-button>
+			</div>
+			<div class="info-line">
+				<p style="color: white;">Apellidos: {{currentUserPerfil.surname}}</p>
+				<ion-button class="btnEditarInfo" size="small" fill="outline"
+					(click)="editField('surname')">Editar</ion-button>
+			</div>
+			<div class="info-line">
+				<p style="color: white;">Email: {{currentUserPerfil.email}}</p>
+				<ion-button class="btnEditarInfo" size="small" fill="outline"
+					(click)="editField('email')">Editar</ion-button>
+			</div>
+			<div class="info-line">
+				<p style="color: white;">Playa asociada: {{playaAsociadaMostrar}}</p>
+				<ion-button class="btnEditarInfo" size="small" fill="outline"
+					(click)="editFieldPlaya()">Editar</ion-button>
+			</div>
+		</ion-card-content>
+	</ion-card>
+	<div class="contenedor-btn">
+		<ion-button strong="true" (click)="confirmar()">Confirmar cambios</ion-button>
+	</div>
+
+</ion-content>

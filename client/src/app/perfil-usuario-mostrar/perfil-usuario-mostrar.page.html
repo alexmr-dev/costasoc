@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large">perfil</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<div class="contenedor-img">
+		<img [src]="userAMostrar?.imagen">
+		<p *ngIf="userAMostrar?.estado === 'online'">
+			<span class="status-dot online"></span> En línea
+		</p>
+		<p *ngIf="userAMostrar?.estado === 'offline'">
+			<span class="status-dot offline"></span> Desconectado
+		</p>
+	</div>
+	<br />
+	<!--<ion-textarea rows=3 class="textarea-custom" label="Comentario" labelPlacement="floating" fill="outline" placeholder="Comentario"></ion-textarea>-->
+	<ion-card>
+		<ion-card-header>
+			<ion-card-title style="margin:auto">Información</ion-card-title>
+		</ion-card-header>
+		<ion-card-content>
+			<div class="info-line">
+				<p style="color: white;">Nombre: {{ userAMostrar?.name }}</p>
+			</div>
+			<div class="info-line">
+				<p style="color: white;">Apellidos: {{ userAMostrar?.surname }}</p>
+			</div>
+			<div class="info-line">
+				<p style="color: white;">Email: {{ userAMostrar?.email }}</p>
+			</div>
+			<div class="info-line">
+				<p style="color: white;">Playa asignada: {{nombrePlayaAsociada }}</p>
+			</div>
+		</ion-card-content>
+	</ion-card>
+
+</ion-content>

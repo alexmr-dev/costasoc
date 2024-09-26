@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+
+<ion-toolbar>
+	<ion-buttons slot="start">
+		<ion-menu-button></ion-menu-button>
+	</ion-buttons>
+	<ion-title></ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large"></ion-title>
+		</ion-toolbar>
+	</ion-header>
+
+	<div style="position: relative; height: 100%; width: 100%;">
+		<ion-card style="position: absolute; top: 10px; left: 50%; transform: translateX(-53%); z-index: 1000; width: 300px;">
+			<ion-card-header style="display: flex; justify-content: space-between;">
+				<ion-card-title>{{tituloPlaya}}</ion-card-title>
+				<ion-button shape="round" (click)="toggleShowContent()" class="btnShowContent">
+					<ion-icon slot="icon-only" [name]="showContent ? 'chevron-up-outline' : 'chevron-down-outline'" size="large"></ion-icon>
+				</ion-button>
+			</ion-card-header>
+			<ion-card-content *ngIf="showContent">
+				<p>Temperatura: {{ temperature }}ºC</p>
+				<p>Índice UV: {{ uvIndex }}</p>
+				<p>Velocidad del viento: {{ windSpeed }} km/h</p>
+				<p>Humedad: {{ humedad }} %</p>
+				<div class="ion-text-center">
+					<ion-button (click)="navegarAMostrarPlaya()" expand="full">Más información</ion-button>
+				</div>
+			</ion-card-content>
+		</ion-card>
+
+		<div id="mapId" style="height: 100%; width: 100%;"></div>
+		
+	</div>
+
+	<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+		<ion-fab-button class="custom-fab" (click)="centerMapOnUser()">
+			<ion-icon name="locate" size="large"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+
+	<!--
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+		<ion-fab-button class="custom-fab">
+			<ion-icon name="settings-outline" size="large"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+	-->
+</ion-content>

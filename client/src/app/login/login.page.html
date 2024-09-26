@@ -1,0 +1,11 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content class="login-background">
+	<div class="centered-content">
+		<img src="../../assets/imgs/logo2.png" alt="Logo">
+		<ion-input [(ngModel)]="email" name="email" label="E-Mail" fill="outline"></ion-input>
+		<ion-input [(ngModel)]="password" name="password" label="Contraseña" type="password" fill="outline"></ion-input>
+		<ion-button strong="true" class="btnLogin" expand="full" (click)="login()">Iniciar sesión</ion-button>
+	</div>
+</ion-content>

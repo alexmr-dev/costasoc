@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large">lista-recursos</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<h3 style="text-align: center; margin-left: 1em; margin-right: 1em;">Recursos en {{playaAsociadaMostrar}}</h3>
+	
+	<ion-item>
+		<ion-select [(ngModel)]="filtroEstado" (ionChange)="cambiarFiltroEstado($event.target.value)" label="Mostrar recursos:">
+			<ion-select-option value="todos">Todos</ion-select-option>
+			<ion-select-option value="rotos">Rotos</ion-select-option>
+			<ion-select-option value="robados">Robados</ion-select-option>
+		</ion-select>
+	</ion-item>
+	
+	<ion-card *ngFor="let recurso of recursos$ | async" (click)="navigateToEditarRecurso(recurso.ID)">
+		<ion-card-header>
+			<ion-card-title>{{ recurso.nombre_recurso }}</ion-card-title>
+		</ion-card-header>
+	
+		<ion-card-content>
+			Última actualización el {{ recurso.FechaLastUpdate | date:'dd/MM/yyyy' }} a las {{ recurso.HoraLastUpdate }}
+			<br>
+			Estado: {{ recurso.Estado }} <!-- Reemplaza 'estado' con la propiedad correspondiente de tu objeto recurso -->
+		</ion-card-content>
+	</ion-card>
+</ion-content>
